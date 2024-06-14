@@ -1,0 +1,70 @@
+﻿<Window x:Class="Recipe.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#181735">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#0F0F2D" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Home" Grid.Column="1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Fonts/Dosis" FontWeight="Medium" Click="HomeButton_Click"/>
+            <Button Content="Menu" Grid.Column="2" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Fonts/Dosis" FontWeight="Medium" Click="MenuButton_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1" x:Name="HomeGrid" Background="#181735">
+            <Image Source="images/pancakes.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="200" Margin="10"/>
+            <TextBlock Text="Welcome to RecipeApp! Here you can find various recipes and create your own menu." Foreground="White" Margin="10" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Button Content="Go to Menu" Click="MenuButton_Click" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1" x:Name="MenuGrid" Background="#181735" Visibility="Collapsed">
+            <StackPanel>
+                <TextBox x:Name="IngredientTextBox" PlaceholderText= "Enter Ingredient" Margin="10"/>
+                <TextBox x:Name="FoodGroupTextBox" PlaceholderText= "Enter Food Group" Margin="10"/>
+                <TextBox x:Name="CaloriesTextBox" PlaceholderText= "Enter Maximum Calories" Margin="10"/>
+                <Button Content="Filter Recipes" Click="FilterRecipesButton_Click" Margin="10"/>
+                <Button Content="Show Pie Chart" Click="ShowPieChartButton_Click" Margin="10"/>
+                <ListView x:Name="RecipeListView" Margin="10">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                            <GridViewColumn Header="Ingredients" DisplayMemberBinding="{Binding Ingredients}" Width="250"/>
+                            <GridViewColumn Header="Food Group" DisplayMemberBinding="{Binding FoodGroup}" Width="100"/>
+                            <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="100"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
